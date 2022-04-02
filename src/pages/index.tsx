@@ -13,7 +13,7 @@ const Homepage = () => {
   return (
     <main className="w-screen h-screen overflow-hidden">
       {fishes.map(() => (
-        <Fish />
+        <Fish size={64} />
       ))}
     </main>
   );
