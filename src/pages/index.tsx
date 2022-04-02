@@ -11,12 +11,13 @@ const Homepage = () => {
         width={1920}
         height={1080}
         objectFit="cover"
-        src="https://placekitten.com/1920/1080"
+        src="/bg.png"
         alt="Fish"
-        loader={({width}) => `https://placekitten.com/${width}/${width}`}
+        loader={({width}) => '/bg.png'}
         unoptimized
         layout="fill"
         draggable={false}
+        className="z-20"
       />
 
       <Rod />
