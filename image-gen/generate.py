@@ -13,8 +13,43 @@ print(bodies)
 print(eyes)
 print(hats)
 
+colours = [ (255,    0,   0),
+            (  0,  255,   0),
+            (  0,    0, 255),
+            (255,  255,   0),
+            (255,    0, 255),
+            (  0,  255, 255)]
+
+white =     (255, 255, 255, 255)
+
+def makeHue(colour, grey):
+    """Return hue of colour based on grey input"""
+    if type(grey) == tuple:
+        grey = grey[0]
+    grey /= 255
+    r = round(colour[0]*grey)
+    g = round(colour[1]*grey)
+    b = round(colour[2]*grey)
+    return (r, g, b, 255)
+
+def changeColour (im, newColour):
+    """Returns new image data based on a greyscale image input and a colour"""
+    global white
+    newimdata = []
+    for color in im.getdata():
+        if color != white:
+            newimdata.append(makeHue(newColour, color))
+        #elif len(color) == 
+        else:
+            newimdata.append((color[0], color[1], color[3], 0))
+    newim = Image.new(im.mode,im.size)
+    newim.putdata(newimdata)
+    return newim
+
 ## Make copy of body image
-#shutil.copyfile()
+for body in bodies:
+    image = Image.open(mypath+"colour/"+body)
+    changeColour(image, colours[0]).save(mypath+"../images/"+body)
 
 ## Layer body outline
 
