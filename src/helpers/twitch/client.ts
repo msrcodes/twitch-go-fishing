@@ -24,7 +24,7 @@ class TwitchClient {
 
   private addScore: () => void;
 
-  private MODIFIER = 10;
+  private MODIFIER = 25;
 
   constructor(
     rodX: number,

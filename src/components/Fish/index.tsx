@@ -56,15 +56,21 @@ const Fish = ({size = 64}: FishProps) => {
     };
   }, [left, top, direction]);
 
+  const [fishimg, setFishimg] = useState(-1);
+
+  useEffect(() => {
+    setFishimg(randomIntFromInterval(0, 53));
+  }, []);
+
   return (
     <div style={{left, top, position: 'absolute'}} className="fish">
       <Image
         width={size}
         height={size}
         objectFit="cover"
-        src="https://placekitten.com/256/256"
+        src={`/fish-images/${fishimg}.png`}
         alt="Fish"
-        loader={({width}) => `https://placekitten.com/${width}/${width}`}
+        loader={({width}) => `/fish-images/${fishimg}.png`}
         unoptimized
         draggable={false}
       />
