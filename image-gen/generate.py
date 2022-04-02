@@ -13,14 +13,15 @@ print(bodies)
 print(eyes)
 print(hats)
 
-colours = [ (255,    0,   0),
-            (  0,  255,   0),
-            (  0,    0, 255),
-            (255,  255,   0),
-            (255,    0, 255),
-            (  0,  255, 255)]
+colours = { "red":   (255,    0,   0),
+            "green": (  0,  255,   0),
+            "blue":  (  0,    0, 255),
+            "yellow":(255,  255,   0),
+            "purple":(255,    0, 255),
+            "cyan":  (  0,  255, 255)}
 
 white =     (255, 255, 255, 255)
+off_white = (243, 242, 238, 255)
 
 def makeHue(colour, grey):
     """Return hue of colour based on grey input"""
@@ -37,7 +38,7 @@ def changeColour (im, newColour):
     global white
     newimdata = []
     for color in im.getdata():
-        if color[0] == 0:
+        if color[0] == 0 or color == white or color == off_white:
             newimdata.append(color)
         else:
             newimdata.append(makeHue(newColour, color))
@@ -45,10 +46,23 @@ def changeColour (im, newColour):
     newim.putdata(newimdata)
     return newim
 
+def mergeImage(colour_layer_path, body_layer_path, eye_layer_path, hat_layer_path=None):
+    colour_layer =  Image.open(colour_layer_path)#.convert('RGBA')
+    body_layer =  Image.open(body_layer_path)#.convert('RGBA')
+    eye_layer =  Image.open(eye_layer_path)#.convert('RGBA')
+    if hat_layer_path != None:
+        hat_layer = Image.open(hat_layer_path)
+#    merge=Image.new(image1.mode,image1.size)
+#    merge = 'merged.jpg'
+    Image.alpha_composite(image1, image2,).save("merged.png")
+    merge =  Image.open('merged.png')
+    Image.alpha_composite(merge, image3,).save("merged.png")
+
 ## Make copy of body image
 for body in bodies:
-    image = Image.open(mypath+"colour/"+body)
-    changeColour(image, colours[0]).save(mypath+"../images/"+body)
+    for c in colours.keys():
+        image = Image.open(mypath+"colour/"+body)
+        changeColour(image, colours[c]).save(mypath+"../images/"+c+"_"+body)
 
 ## Layer body outline
 
