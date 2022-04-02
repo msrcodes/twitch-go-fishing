@@ -1,9 +1,9 @@
 {
-  "name": "gdscports-boilerplate-next",
+  "name": "twitch-chat-go-fishing",
   "version": "1.0.0",
-  "description": "A boilerplate for projects using Next.js and TypeScript.",
+  "description": "HackPompey go fishing",
   "main": "index.js",
-  "repository": "git@github.com:gdscports/admins-2021-boilerplate-next-BNXT.git",
+  "repository": "git@github.com:mikaelsrozee/twitch-go-fishing.git",
   "author": "Mikael Rozee <mikaelsrozee@gmail.com>",
   "license": "UNLICENSED",
   "private": false,
