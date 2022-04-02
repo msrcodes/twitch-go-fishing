@@ -26,7 +26,7 @@ const Rod = () => {
     <>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
-        className="z-20 absolute"
+        className="z-20 absolute border-4 border-red-500 rounded-lg p-2"
         style={{
           top: posY + height / 2 - SIZE / 2,
           left: posX + width / 2 - SIZE / 2,
