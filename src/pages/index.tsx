@@ -1,5 +1,6 @@
 import {useEffect} from 'react';
 import TwitchClient from '../helpers/twitch/client';
+import Image from 'next/image';
 
 const Homepage = () => {
   useEffect(() => {
@@ -9,7 +10,19 @@ const Homepage = () => {
 
   return (
     <main>
-      <h1 className="text-red-500">Hello World!</h1>
+      {/* <div className="h-14 bg-gradient-to-r from-cyan-500 to-blue-500"></div> */}
+      <img 
+        src='https://placekitten.com/1920/973'
+        className="z-0 ...">
+      </img>
+      {/* <Image
+        width={1920}
+        height={400}
+        objectFit="cover"
+        src="https://placekitten.com/256/256"
+        alt="Fish"
+        loader={() => 'https://placekitten.com/1000/500'}
+      /> */}
     </main>
   );
 };
