@@ -1,14 +1,8 @@
-import {useEffect} from 'react';
 import Fish from '../components/Fish';
-import TwitchClient from '../helpers/twitch/client';
 import Image from 'next/image';
+import Rod from '../components/Rod';
 
 const Homepage = () => {
-  useEffect(() => {
-    const client = new TwitchClient();
-    client.init();
-  }, []);
-
   const fishes = new Array(10).fill(0);
 
   return (
@@ -24,6 +18,8 @@ const Homepage = () => {
         layout="fill"
         draggable={false}
       />
+
+      <Rod />
 
       {fishes.map((_fish, i) => (
         <Fish key={i} size={64} />
