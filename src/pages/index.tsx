@@ -1,4 +1,5 @@
 import {useEffect} from 'react';
+import Fish from '../components/Fish';
 import TwitchClient from '../helpers/twitch/client';
 
 const Homepage = () => {
@@ -7,9 +8,13 @@ const Homepage = () => {
     client.init();
   }, []);
 
+  const fishes = new Array(10).fill(0);
+
   return (
-    <main>
-      <h1 className="text-red-500">Hello World!</h1>
+    <main className="w-screen h-screen overflow-hidden">
+      {fishes.map(() => (
+        <Fish />
+      ))}
     </main>
   );
 };
