@@ -37,11 +37,10 @@ def changeColour (im, newColour):
     global white
     newimdata = []
     for color in im.getdata():
-        if color != white:
-            newimdata.append(makeHue(newColour, color))
-        #elif len(color) == 
+        if color[0] == 0:
+            newimdata.append(color)
         else:
-            newimdata.append((color[0], color[1], color[3], 0))
+            newimdata.append(makeHue(newColour, color))
     newim = Image.new(im.mode,im.size)
     newim.putdata(newimdata)
     return newim
