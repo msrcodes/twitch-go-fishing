@@ -22,6 +22,7 @@ const Homepage = () => {
         objectFit="cover"
         src="/bg.png"
         alt="Fish"
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         loader={({width}) => '/bg.png'}
         unoptimized
         layout="fill"

@@ -70,7 +70,8 @@ const Fish = ({size = 64}: FishProps) => {
         objectFit="cover"
         src={`/fish-images/${fishimg}.png`}
         alt="Fish"
-        loader={({width}) => `/fish-images/${fishimg}.png`}
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        loader={({width: _width}) => `/fish-images/${fishimg}.png`}
         unoptimized
         draggable={false}
       />

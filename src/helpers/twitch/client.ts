@@ -1,5 +1,4 @@
 import {Client} from 'tmi.js';
-import useWindowSize from '../window';
 
 interface BetterElement {
   style: {
