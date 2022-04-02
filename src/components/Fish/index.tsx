@@ -54,7 +54,7 @@ const Fish = ({size = 64}: FishProps) => {
     return () => {
       clearInterval(interval);
     };
-  }, [left, top]);
+  }, [left, top, direction]);
 
   return (
     <div style={{left, top, position: 'absolute'}}>
