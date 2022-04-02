@@ -11,6 +11,7 @@ const Homepage = () => {
   return (
     <main>
       {/* <div className="h-14 bg-gradient-to-r from-cyan-500 to-blue-500"></div> */}
+      
       <img 
         src='https://placekitten.com/1920/973'
         className="z-0 ...">
