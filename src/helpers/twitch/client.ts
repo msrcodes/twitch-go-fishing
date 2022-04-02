@@ -22,6 +22,8 @@ class TwitchClient {
   private setX: React.Dispatch<React.SetStateAction<number>>;
   private setY: React.Dispatch<React.SetStateAction<number>>;
 
+  private addScore: () => void;
+
   private MODIFIER = 10;
 
   constructor(
@@ -30,7 +32,8 @@ class TwitchClient {
     setX: React.Dispatch<React.SetStateAction<number>>,
     setY: React.Dispatch<React.SetStateAction<number>>,
     windowWidth: number,
-    windowHeight: number
+    windowHeight: number,
+    addScore: () => void
   ) {
     this.rodX = rodX;
     this.rodY = rodY;
@@ -38,6 +41,7 @@ class TwitchClient {
     this.setY = setY;
     this.windowWidth = windowWidth;
     this.windowHeight = windowHeight;
+    this.addScore = addScore;
     this.client = new Client({
       options: {debug: true},
       //   identity: {
@@ -106,7 +110,7 @@ class TwitchClient {
         });
 
         if (hit) {
-          console.log('Hit');
+          this.addScore();
           hit.remove();
         }
       }

@@ -2,7 +2,11 @@ import React, {useEffect, useState} from 'react';
 import TwitchClient from '../../helpers/twitch/client';
 import useWindowSize from '../../helpers/window';
 
-const Rod = () => {
+interface RodProps {
+  addScore: () => void;
+}
+
+const Rod = ({addScore}: RodProps) => {
   const [posX, setPosX] = useState(0);
   const [posY, setPosY] = useState(0);
 
@@ -15,7 +19,8 @@ const Rod = () => {
       setPosX,
       setPosY,
       width,
-      height
+      height,
+      addScore
     );
     client.init();
   }, [height, width]);
