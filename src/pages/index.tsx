@@ -1,4 +1,5 @@
 import {useEffect} from 'react';
+import Fish from '../components/Fish';
 import TwitchClient from '../helpers/twitch/client';
 import Image from 'next/image';
 
@@ -8,22 +9,17 @@ const Homepage = () => {
     client.init();
   }, []);
 
+  const fishes = new Array(10).fill(0);
+
   return (
-    <main>
-      {/* <div className="h-14 bg-gradient-to-r from-cyan-500 to-blue-500"></div> */}
-      
-      <img 
+    <main className="w-screen h-screen overflow-hidden">
+    <img 
         src='https://placekitten.com/1920/973'
         className="z-0 ...">
       </img>
-      {/* <Image
-        width={1920}
-        height={400}
-        objectFit="cover"
-        src="https://placekitten.com/256/256"
-        alt="Fish"
-        loader={() => 'https://placekitten.com/1000/500'}
-      /> */}
+      {fishes.map(() => (
+        <Fish size={64} />
+      ))}
     </main>
   );
 };
