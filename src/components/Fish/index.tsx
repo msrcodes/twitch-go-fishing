@@ -57,7 +57,7 @@ const Fish = ({size = 64}: FishProps) => {
   }, [left, top, direction]);
 
   return (
-    <div style={{left, top, position: 'absolute'}}>
+    <div style={{left, top, position: 'absolute'}} className="fish">
       <Image
         width={size}
         height={size}
