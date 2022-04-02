@@ -16,7 +16,7 @@ const directions: Coord[] = [
   [1, 1],
 ];
 
-const MAX_TIME = 50;
+const MAX_TIME = 100;
 
 interface FishProps {
   size: number;
